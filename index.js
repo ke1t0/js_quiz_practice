@@ -1,27 +1,44 @@
 const quiz = [
   {
-    question: 'ゲーム市場、最も売れたゲーム機は次の内どれ？',
-    answers: ['スーパーファミコン', 'プレイステーション２', 'ニンテンドースイッチ', 'ニンテンドーDS'],
-    correct: 'ニンテンドーDS',
-  }, {
-    question: '糸井重里が企画に関わった、任天堂の看板ゲームといえば？',
-    answers: [ 'MOTHER2', 'スーパーマリオブラザーズ3', 'スーパードンキーコング', '星のカービィ'],
-    correct: 'MOTHER2'
-  }, {
-    question: 'ファイナルファンタジーⅣの主人公の名前は？',
-    answers: [ 'フリオニール', 'クラウド', 'ティーダ', 'セシル'],
-    correct: 'セシル'
-  }
+    question: "ゲーム市場、最も売れたゲーム機は次の内どれ？",
+    answers: [
+      "スーパーファミコン",
+      "プレイステーション２",
+      "ニンテンドースイッチ",
+      "ニンテンドーDS",
+    ],
+    correct: "ニンテンドーDS",
+  },
+  {
+    question: "糸井重里が企画に関わった、任天堂の看板ゲームといえば？",
+    answers: [
+      "MOTHER2",
+      "スーパーマリオブラザーズ3",
+      "スーパードンキーコング",
+      "星のカービィ",
+    ],
+    correct: "MOTHER2",
+  },
+  {
+    question: "ファイナルファンタジーⅣの主人公の名前は？",
+    answers: ["フリオニール", "クラウド", "ティーダ", "セシル"],
+    correct: "セシル",
+  },
+  {
+    question: "いちごの原産国はどこ？",
+    answers: ["中国", "アメリカ", "イギリス", "イタリア"],
+    correct: "アメリカ",
+  },
 ];
 
 const quizLength = quiz.length;
 let quizIndex = 0;
 let score = 0;
 
-const $button = document.getElementsByTagName('button');
+const $button = document.getElementsByTagName("button");
 // クイズの問題文、選択肢を定義
 const setupQuiz = () => {
-  document.getElementById('js-question').textContent = quiz[quizIndex].question;
+  document.getElementById("js-question").textContent = quiz[quizIndex].question;
   for (let i = 0; i < $button.length; i++) {
     $button[i].textContent = quiz[quizIndex].answers[i];
   }
@@ -30,10 +47,10 @@ setupQuiz();
 
 const clickHandler = (e) => {
   if (quiz[quizIndex].correct === e.target.textContent) {
-    window.alert('正解！');
+    window.alert("正解！");
     score++;
   } else {
-    window.alert('不正解！');
+    window.alert("不正解！");
   }
 
   quizIndex++;
@@ -48,7 +65,7 @@ const clickHandler = (e) => {
 };
 
 for (let i = 0; i < $button.length; i++) {
-  $button[i].addEventListener('click', (e) => {
+  $button[i].addEventListener("click", (e) => {
     clickHandler(e);
   });
 }
